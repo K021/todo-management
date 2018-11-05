@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="post-container">
+    <div class="post">
+        {% for todo in todos %}
+            <h4 class="post-title"><a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.title }}</a></h4>
+            <p class="content">{{ todo.content|linebreaksbr|truncatewords:10 }}</p>
+            <p class="right-text">{{ todo.priority_verbose }} | <strong>Due Date</strong>: {{ todo.expiration }} |
+                <a href="{% url 'todo_complete' pk=todo.pk %}">완료하기</a>
+            </p>
+        {% endfor %}
+    </div>
+    <a class="btn btn-default right-text" href="{% url 'todo_add' %}">추가</a>
+</div>
+{% endblock %}
+

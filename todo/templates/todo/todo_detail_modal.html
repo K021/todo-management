@@ -1,0 +1,29 @@
+<!--aria-hidden=""-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 20px 15px 5px">
+                <h3 class="modal-title" id="myModalLabel" style="margin-left: 10px; color:#FC7205; font-weight: bold">정말
+                    삭제하시겠습니까?</h3>
+            </div>
+            <div class="modal-body" style="padding-bottom: 10px">
+                <p style="margin-bottom: 5px; margin-left: 10px">되돌릴 수 없는 거 아시죠?</p>
+            </div>
+            <div class="modal-footer" style="padding: 5px 15">
+                <form action="{% url 'todo_delete' pk=todo.pk %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default" name="ask_delete" value="delete_yes"
+                            style="border: 1px solid #FC7205; color: #FC7205">YES
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                            style="border: 1px solid #FC7205; color: #FC7205">NO
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$('#myModal').modal()
+
+</script>

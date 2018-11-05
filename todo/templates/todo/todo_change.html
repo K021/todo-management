@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Things to do . 변경
+{% endblock %}
+
+{% block content %}
+<form class="form-horizontal" method="post">
+    {% csrf_token %}
+    <!--제목-->
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="width: 80px">제목</label>
+        <div class="col-sm-10">
+            {{ form.title }}
+        </div>
+    </div>
+    <!--내용-->
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="width: 80px">내용</label>
+        <div class="col-sm-10">
+            {{ form.content }}
+        </div>
+    </div>
+    <!--발행(publish) 체크박스-->
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="width: 80px">마감기한</label>
+        <div class="col-sm-10">
+            {{ form.expiration }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="width: 80px">우선순위</label>
+        <div class="col-sm-10">
+            {{ form.priority }}
+        </div>
+    </div>
+    <!--글쓰기버튼-->
+    <div class="form-group right-inline" style="margin-right: 55px">
+        <div class="col-sm-offset-2 col-sm-10 right-inline">
+            <button type="" class="btn btn-default right-inline">변경</button>
+        </div>
+    </div>
+    <div class="form-group">
+    </div>
+</form>
+
+{% endblock %}

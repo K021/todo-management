@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="post-container">
+    <div class="post">
+        <h4 class="post-title">{{ todo.title }}</h4>
+        <p class="content">{{ todo.content|linebreaksbr }}</p>
+        <p class="right-text">{{ todo.priority_verbose }} | <strong>Due Date</strong>: {{ todo.expiration }} |
+                <a href="{% url 'todo_complete' pk=todo.pk %}">완료하기</a>
+        </p>
+    </div>
+</div>
+<form action="{% url 'todo_change' pk=todo.pk %}" method="post">
+    {% csrf_token %}
+    <div class="form-group right-text" >
+        <div class="col-xs-2 col-xs-offset-7 col-sm-offset-10 col-sm-1" style="padding: 0;">
+            <button type="" class="btn btn-default right-inline" value="DEL">수정</button>
+        </div>
+    </div>
+</form>
+<form action="{% url 'todo_detail_modal' pk=todo.pk ask_delete=True %}" method="post">
+    {% csrf_token %}
+    <div class="form-group right-text" >
+        <div class="col-xs-2 col-xs-offset-1 col-sm-offset-0 col-sm-1" style="padding: 0;">
+            <button type="" class="btn btn-default right-inline" value="DEL">삭제</button>
+        </div>
+    </div>
+</form>
+{#<!--<a class="btn btn-default right-text" href="{% url 'todo_delete' pk=todo.pk %}">삭제하기</a>-->#}
+{% if ask_delete %}
+    {% include 'todo/todo_detail_modal.html' %}
+{% endif %}
+{% endblock %}

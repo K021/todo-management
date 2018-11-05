@@ -1,0 +1,25 @@
+<!--static은 기본 태그가 아니므로 로드해야 한다 -->
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--여기서 static은 template 태그라고 불린다-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="{% static 'bootstrap/js/http_ajax.googleapis.com_ajax_libs_jquery_3.2.1_jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <title>The Blog</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="blog-title"><a href="{% url 'main' %}">{% block title %}Things to do .{% endblock %}</a></h1>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>
