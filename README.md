@@ -1,11 +1,12 @@
-##### 프로그램 설치 환경
+> `config_secret` 파일이 깃에서 제외되어 있지 않아 새로 만들었다.
+
+## 프로그램 설치 환경
 python==3.6.3
 RabbitMQ==3.5.7
 
 # 기능 설명
 
-> ##### 접속 주소
-> http://ec2-13-125-254-180.ap-northeast-2.compute.amazonaws.com
+> 접속 주소: http://ec2-13-125-254-180.ap-northeast-2.compute.amazonaws.com
 
 ## 할일 리스트
 - `/`
